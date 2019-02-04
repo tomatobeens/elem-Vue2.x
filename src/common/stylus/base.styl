@@ -1,0 +1,33 @@
+//使用 @media 查询，你可以针对不同的媒体类型定义不同的样式。
+// CSS 语法
+// @media mediatype and|not|only (media feature) {
+//     CSS-Code;
+// }
+
+body, html
+  line-height: 1
+  font-weight: 200
+  font-family: 'PingFang SC', 'STHeitiSC-Light', 'Helvetica-Light', arial, sans-serif
+
+//清除浮动：解决因为子元素的浮动导致父元素高度的塌陷
+.clearfix
+  display: inline-block
+  &:after
+    display: block
+    content: ""
+    height: 0
+    line-height: 0
+    clear: both
+    visibility: hidden
+
+@media (-webkit-min-device-pixel-ratio: 1.5),(min-device-pixel-ratio:1.5)
+    .border-1px
+        &::after
+            -webkit-transform: scaleY(0.7)
+            transform: scaleY(0.7)
+
+@media (-webkit-min-device-pixel-ratio: 2),(min-device-pixel-ratio:2)
+    .border-1px
+        &::after
+            -webkit-transform: scaleY(0.5)
+            transform: scaleY(0.5)
